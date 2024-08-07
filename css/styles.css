@@ -7,26 +7,25 @@
 body {
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif;
     background-color: #e5e4ee;
-    max-width: 1200px;
     justify-content: space-between
 
 }
+/* estilos de mobile */
 
 header {
-    background-color: #222224;
-    color: white;
+    background-color: whitesmoke;
+    color: rgb(19, 9, 9);
     padding: 10px 0;
+
 }
-header img{
-    height: 60px;
-    width: 60px;
-    border-radius: .5;
+header section .titulo { 
+    display:block;
+
 }
 nav ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
 }
 
 nav ul li {
@@ -39,33 +38,75 @@ nav ul li a {
     text-decoration: none;
     
 }
-
+/* ESTILOS DE MAIN */
 main {
-    padding: 20px;
+    margin: 0px 30px;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat (3, 25%);
+    align-content: center;
+    row-gap: 10px;
+    
+
 }
-main h1{
-    margin-bottom: 10px;
+main div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
-main div{
-    width: 600px;
-    height: 400px;
+main .img-1, main .img-5{
+    display: none;
 }
 
-footer {
+main div form {
+    border: solid;
+    border: rgb(8, 9, 9);
+}
+
+@media (min-width: 468px) {
+     
+ header nav ul li {
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between;
+ }
+ 
+}
+
+footer  {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position: fixed; bottom: 0; left: 0; right: 0;
     width: 100%;
     bottom: 0;
 }
-@media (min-width: 468px) {
-      
- header nav ul li {
-    /*flex-direction: row;*/
-    align-items: center; 
-    justify-content: space-between
+/* estilos de tablet */
 
- }
+@media screen and (min-width: 768px){
+    main{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 40% );
+        column-gap:  10px;
+    }
+    
+    main .img-2 {
+        grid-column: span 2;
+    }
+}
+@media screen and (min-width: 1024px){
+    main .img-1, main .img-5{
+        display: block;
+    }
+    main{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 30% 30% 10%;
+    }
+    main .img-2 {
+        grid-row: span 1;
+
+    }
 }
